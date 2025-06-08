@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enter RTMP Key</title>
+  <link rel="stylesheet" href="./key.css" />
+</head>
+<body>
+  <div class="form-box">
+    <h2>Enter Your Youtube RTMP Stream Key</h2>
+    <form id="key-form">
+      <input type="text" id="stream-key" placeholder="Stream Key (e.g. qkt7-hwgp-xxxx)" required />
+      <button type="submit">Start</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('key-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const key = document.getElementById('stream-key').value;
+
+      const res = await fetch('/start-stream', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ key })
+      });
+
+      if (res.ok) {
+        window.location.href = '/index.html';
+      } else {
+        alert('Failed to start stream');
+      }
+    });
+  </script>
+</body>
+</html>
