@@ -6,7 +6,7 @@ import { dirname } from 'path';
 import { Server as SocketIO } from 'socket.io';
 import { spawn } from 'child_process';
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 const app = express();
 const server = http.createServer(app);
 const io = new SocketIO(server);
@@ -99,3 +99,4 @@ io.on('connection', (socket) => {
 server.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
