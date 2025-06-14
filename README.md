@@ -44,5 +44,5 @@ Before running the project, make sure you have the following installed on your s
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/tberch-ts/RTMP-Server.git
    docker compose up
